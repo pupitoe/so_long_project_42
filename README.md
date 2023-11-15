@@ -4,6 +4,6 @@
 
 Clippy is the main character and he has to win back paper.
 
-His enemies will be david, because he'll want to hack it.
+His enemies will be dav, because he'll want to hack it.
 
 Objects will be windows xp.
