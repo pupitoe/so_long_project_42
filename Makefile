@@ -1,4 +1,5 @@
 SOURCES =	main.c \
+			sources/ft_pos.c \
 			sources/ft_check_map.c \
 			sources/ft_check_map_content.c \
 			sources/ft_check_map_flood_fill.c \

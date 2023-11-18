@@ -1,26 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_pos.h                                           :+:      :+:    :+:   */
+/*   ft_pos.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tlassere <tlassere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/13 21:34:02 by tlassere          #+#    #+#             */
-/*   Updated: 2023/11/18 19:12:25 by tlassere         ###   ########.fr       */
+/*   Created: 2023/11/18 18:53:53 by tlassere          #+#    #+#             */
+/*   Updated: 2023/11/18 19:16:24 by tlassere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_POS_H
-# define FT_POS_H
-# include "../libft/libft.h"
-typedef struct	s_pos
+#include "../headers/ft_pos.h"
+
+t_pos   *ft_init_pos_ptr(void)
 {
-	int	x;
-	int	y;
-	int	index;
-}				t_pos;
+    t_pos   *vector;
 
-t_pos   *ft_init_pos_ptr(void);
-t_pos   ft_init_pos(void);
+    vector = malloc(sizeof(t_pos));
+    if (vector == NULL)
+        return (NULL);
+    ft_bzero(vector, sizeof(t_pos));
+    return (vector);
+}
 
-#endif
+t_pos   ft_init_pos(void)
+{
+    t_pos   vector;
+
+    vector.index = 0;
+    vector.x = 0;
+    vector.y = 0;
+    return (vector);
+}

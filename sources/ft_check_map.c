@@ -36,7 +36,6 @@ int ft_check_map(char *path)
 	int		ret;
 
 	lst_map = ft_get_map(path);
-	ft_print_lst(lst_map);
 	if (lst_map == NULL)
 		return (-1);
 	map = ft_get_tab(lst_map);
