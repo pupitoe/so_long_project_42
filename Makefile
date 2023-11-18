@@ -7,7 +7,7 @@ SOURCES =	main.c \
 			sources/ft_check_map_items.c
 OBJS = $(SOURCES:.c=.o)
 NAME = so_long
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g3
 CC = gcc
 
 LIBFT=libft/libft.a

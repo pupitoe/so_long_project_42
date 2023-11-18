@@ -6,7 +6,7 @@
 /*   By: tlassere <tlassere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 18:25:10 by tlassere          #+#    #+#             */
-/*   Updated: 2023/11/18 17:14:10 by tlassere         ###   ########.fr       */
+/*   Updated: 2023/11/18 18:38:42 by tlassere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,6 @@ int	ft_map_fill(char *str, int c);
 t_item_count *ft_check_map_items(t_list *map);
 t_list	*ft_put_line(t_list **lst, int fd);
 t_list	*ft_get_map(char *path);
+int	ft_flood_fill(char **map, t_item_count *items);
 
 #endif

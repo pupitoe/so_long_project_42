@@ -21,8 +21,8 @@ int	ft_map_is_good(t_list *lst_map, char **map)
 	items = ft_check_map_items(lst_map);
 	if (items == NULL)
 		return (-1);
-	if (map == NULL)
-		return (free(lst_map), -1);
+	if (ft_flood_fill(map, items) == -1)
+		return (free(items), -1);
 	free(items);
 	//flood fill
 	return (0);

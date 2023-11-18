@@ -45,4 +45,4 @@ E : Exit
 
 C : Item
 
-V : Entity
+M : Entity
