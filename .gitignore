@@ -1,0 +1,6 @@
+MLX42
+**/*.o
+so_long
+libft/libft.a
+**/*.swap
+maps
