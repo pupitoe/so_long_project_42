@@ -10,24 +10,24 @@ OBJS = $(SOURCES:.c=.o)
 NAME = so_long
 CFLAGS = -Wall -Wextra -Werror -g3
 CC = gcc
-
 LIBFT=libft/libft.a
 LIBMLX = ./MLX42/
-LIBS = $(LIBMLX)build/libmlx42.a -ldl -lglfw -pthread -lm $(LIBFT)
+LIBMLXCOMPILE = $(LIBMLX)build/libmlx42.a
+LIBS = $(LIBMLXCOMPILE) -ldl -lglfw -pthread -lm $(LIBFT)
 
 
-all: libmlx $(NAME)
+all: $(NAME)
 
-$(NAME): $(OBJS) $(LIBFT)
+$(NAME): $(OBJS) $(LIBFT) $(LIBMLXCOMPILE)
 	gcc $(OBJS) $(LIBS) -o $(NAME)
 
 clean:
 	@rm -rf $(OBJS)
-	@rm -rf $(LIBMLX)/build
 	@make -C libft clean
 
 fclean: clean
 	@make -C libft fclean
+	@rm -rf $(LIBMLX)build
 	@rm -rf $(NAME)
 
 libft: $(LIBFT)
@@ -36,6 +36,9 @@ $(LIBFT):
 	@make -C libft
 
 re: fclean all
+
+$(LIBMLXCOMPILE):
+	@make libmlx
 
 libmlx:	
 	@cmake $(LIBMLX) -B $(LIBMLX)/build && make -C $(LIBMLX)/build -j4
