@@ -24,14 +24,12 @@ int	ft_map_is_good(t_list *lst_map, char **map)
 	if (ft_flood_fill(map, items) == -1)
 		return (free(items), -1);
 	free(items);
-	//flood fill
 	return (0);
 }
 
-
-int ft_check_map(char *path)
+int	ft_check_map(char *path)
 {
-	t_list  *lst_map;
+	t_list	*lst_map;
 	char	**map;
 	int		ret;
 

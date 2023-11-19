@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_map_item.c                                      :+:      :+:    :+:   */
+/*   ft_map_content.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tlassere <tlassere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 18:32:59 by tlassere          #+#    #+#             */
-/*   Updated: 2023/11/18 17:10:51 by tlassere         ###   ########.fr       */
+/*   Updated: 2023/11/19 15:49:12 by tlassere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"../headers/ft_map_item.h"
+#include "../headers/ft_map_content.h"
 
 t_item_count	*ft_make_item_count(void)
 {
 	t_item_count	*lst;
-	
+
 	lst = malloc(sizeof(t_item_count));
 	if (lst == NULL)
 		return (NULL);
@@ -45,4 +45,23 @@ void	ft_put_element(t_item_count *lst, int c)
 		lst->entity += 1;
 	else
 		lst->auther += 1;
+}
+
+t_pos	ft_get_spawn(char **map)
+{
+	t_pos	spawn;
+	char	*car;
+
+	spawn = ft_init_pos();
+	spawn.x = -1;
+	while (map[spawn.y] && spawn.x == -1)
+	{
+		car = ft_strchr(map[spawn.y], 'P');
+		if (car)
+			spawn.x = car - map[spawn.y];
+		spawn.y += 1;
+	}
+	spawn.y -= 1;
+	ft_printf("uwu : %d\n", spawn.x);
+	return (spawn);
 }

@@ -6,7 +6,7 @@
 /*   By: tlassere <tlassere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 18:07:58 by tlassere          #+#    #+#             */
-/*   Updated: 2023/11/18 17:34:19 by tlassere         ###   ########.fr       */
+/*   Updated: 2023/11/19 15:45:29 by tlassere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,19 @@ t_list	*ft_put_line(t_list **lst, int fd)
 {
 	char	*line;
 	char	*end_line;
-    t_list  *element;
+	t_list	*element;
 
 	line = get_next_line(fd);
-    if (line == NULL)
+	if (line == NULL)
 		return (*lst);
 	end_line = ft_strchr(line, '\n');
 	if (end_line)
 		(*end_line) = '\0';
 	element = ft_lstnew(line);
-    if (element == NULL)
-        return (NULL);
-    ft_lstadd_back(lst, element);
-    return (ft_put_line(lst, fd));
+	if (element == NULL)
+		return (NULL);
+	ft_lstadd_back(lst, element);
+	return (ft_put_line(lst, fd));
 }
 
 char	**ft_get_tab(t_list *lst)
@@ -37,7 +37,7 @@ char	**ft_get_tab(t_list *lst)
 	int		lst_size;
 	int		i;
 
-	lst_size = ft_lstsize(lst);	
+	lst_size = ft_lstsize(lst);
 	tabs = malloc((lst_size + 1) * sizeof(char **));
 	if (tabs == NULL)
 	{
@@ -55,29 +55,29 @@ char	**ft_get_tab(t_list *lst)
 	return (tabs);
 }
 
-void    ft_print_lst(t_list *lst)
+void	ft_print_lst(t_list *lst)
 {
-    char *el;
+	char	*el;
 
-    while (lst)
-    {
-        el = lst->content;
-        ft_printf("%s\n", el);
-        lst = lst->next;
-    }
+	while (lst)
+	{
+		el = lst->content;
+		ft_printf("%s\n", el);
+		lst = lst->next;
+	}
 }
 
 t_list	*ft_get_map(char *path)
 {
-    int fd;
-    t_list *map;
+	int		fd;
+	t_list	*map;
 
-    fd = open(path, O_RDONLY);
-    map = NULL;
-    if (fd == -1)
+	fd = open(path, O_RDONLY);
+	map = NULL;
+	if (fd == -1)
 		return (NULL);
 	if (!(ft_put_line(&map, fd)))
-        ft_lstclear(&map, &free);
+		ft_lstclear(&map, &free);
 	close(fd);
 	return (map);
 }

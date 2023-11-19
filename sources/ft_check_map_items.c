@@ -6,19 +6,19 @@
 /*   By: tlassere <tlassere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 18:32:59 by tlassere          #+#    #+#             */
-/*   Updated: 2023/11/18 17:13:14 by tlassere         ###   ########.fr       */
+/*   Updated: 2023/11/19 15:47:00 by tlassere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"../headers/ft_check_map.h"
+#include "../headers/ft_check_map.h"
 
 void	ft_put_content_lines(t_list *map, t_item_count *lst)
 {
 	size_t	i;
-	
+
 	while (map)
 	{
-		i = 0;		
+		i = 0;
 		while (((char *)(map->content))[i])
 		{
 			ft_put_element(lst, ((char *)(map->content))[i]);
@@ -39,7 +39,7 @@ static int	ft_check_content(t_item_count *lst)
 	return (0);
 }
 
-t_item_count *ft_check_map_items(t_list *map)
+t_item_count	*ft_check_map_items(t_list *map)
 {
 	t_item_count	*lst;
 

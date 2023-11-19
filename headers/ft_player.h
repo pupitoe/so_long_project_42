@@ -6,7 +6,7 @@
 /*   By: tlassere <tlassere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 21:25:07 by tlassere          #+#    #+#             */
-/*   Updated: 2023/11/13 21:43:05 by tlassere         ###   ########.fr       */
+/*   Updated: 2023/11/19 15:59:53 by tlassere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 # include "./ft_pos.h"
 # include "../libft/libft.h"
 
-typedef struct  s_player
+typedef struct s_player
 {
-    t_pos   pos;
-    size_t  hp;
+	t_pos	pos;
+	size_t	hp;
 }				t_player;
 
 #endif

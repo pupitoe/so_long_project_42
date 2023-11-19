@@ -6,14 +6,13 @@
 /*   By: tlassere <tlassere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 18:05:12 by tlassere          #+#    #+#             */
-/*   Updated: 2023/11/15 18:43:02 by tlassere         ###   ########.fr       */
+/*   Updated: 2023/11/19 15:48:18 by tlassere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/ft_check_map.h"
 
-
-int ft_map_is_valid_rec(int extremity, size_t width, char *line)
+int	ft_map_is_valid_rec(int extremity, size_t width, char *line)
 {
 	int		diff_1;
 	size_t	i;
@@ -28,12 +27,12 @@ int ft_map_is_valid_rec(int extremity, size_t width, char *line)
 			diff_1 = 1;
 		i++;
 	}
-	if (i < 1 || line[i - 1] != '1' || i != width || (extremity && diff_1))	
+	if (i < 1 || line[i - 1] != '1' || i != width || (extremity && diff_1))
 		return (-1);
 	return (0);
 }
 
-int ft_map_is_rec(t_list *map)
+int	ft_map_is_rec(t_list *map)
 {
 	size_t	width;
 	size_t	height;
