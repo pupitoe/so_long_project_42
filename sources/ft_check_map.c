@@ -20,9 +20,9 @@ int	ft_map_is_good(t_list *lst_map, char **map)
 		return (-1);
 	items = ft_check_map_items(lst_map);
 	if (items == NULL)
-		return (-1);
+		return (-2);
 	if (ft_flood_fill(map, items) == -1)
-		return (free(items), -1);
+		return (free(items), -3);
 	free(items);
 	return (0);
 }
@@ -39,6 +39,7 @@ int	ft_check_map(char *path)
 	map = ft_get_tab(lst_map);
 	ft_printf("%w", map);
 	ret = ft_map_is_good(lst_map, map);
+	ft_error(ret);
 	ft_lstclear(&lst_map, NULL);
 	ft_free_tab(map);
 	return (ret);

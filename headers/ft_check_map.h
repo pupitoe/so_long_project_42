@@ -6,7 +6,7 @@
 /*   By: tlassere <tlassere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 18:25:10 by tlassere          #+#    #+#             */
-/*   Updated: 2023/11/19 15:54:04 by tlassere         ###   ########.fr       */
+/*   Updated: 2023/11/19 19:35:18 by tlassere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <fcntl.h>
 # include "ft_map_content.h"
 # include "ft_pos.h"
+# include "ft_error.h"
 
 void			ft_print_lst(t_list *lst);
 char			**ft_get_tab(t_list *lst);
