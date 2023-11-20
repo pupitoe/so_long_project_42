@@ -27,7 +27,7 @@ int	ft_map_is_good(t_list *lst_map, char **map)
 	return (0);
 }
 
-int	ft_check_map(char *path)
+char	**ft_check_map(char *path)
 {
 	t_list	*lst_map;
 	char	**map;
@@ -35,12 +35,16 @@ int	ft_check_map(char *path)
 
 	lst_map = ft_get_map(path);
 	if (lst_map == NULL)
-		return (-1);
+		return (NULL);
 	map = ft_get_tab(lst_map);
 	ft_printf("%w", map);
 	ret = ft_map_is_good(lst_map, map);
 	ft_error(ret);
 	ft_lstclear(&lst_map, NULL);
-	ft_free_tab(map);
-	return (ret);
+	if (ret < 0)
+	{
+		ft_free_tab(map);
+		return (NULL);
+	}
+	return (map);
 }
