@@ -6,7 +6,8 @@ SOURCES =	main.c \
 			sources/ft_check_map_rec.c \
 			sources/ft_map_content.c \
 			sources/ft_check_map_items.c \
-			sources/ft_error.c
+			sources/ft_error.c \
+			sources/ft_player.c
 OBJS = $(SOURCES:.c=.o)
 NAME = so_long
 CFLAGS = -Wall -Wextra -Werror -g3
