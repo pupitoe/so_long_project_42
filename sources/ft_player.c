@@ -6,13 +6,13 @@
 /*   By: tlassere <tlassere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 17:27:48 by tlassere          #+#    #+#             */
-/*   Updated: 2023/11/21 19:38:19 by tlassere         ###   ########.fr       */
+/*   Updated: 2023/11/22 01:16:42 by tlassere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/ft_player.h"
 
-int entyty_fdp()
+int	entyty_fdp(void)
 {
 	return (0);
 }
@@ -41,7 +41,7 @@ int	player_change_map(char **map, t_pos player, t_pos dest)
 static int	ft_player_move(char **map, int action)
 {
 	int	buffer;
-	
+
 	buffer = 0;
 	if (action == 'W')
 		buffer = player_change_map(map, ft_get_spawn(map), (t_pos){0, 1, 0});
@@ -58,7 +58,7 @@ static int	ft_player_move(char **map, int action)
 
 int	ft_player_action(char **map, int action)
 {
-	static t_player player = {0, 0};
+	static t_player	player = {0, 0};
 	int				buffer;
 
 	if (ft_strchr("WASD", action))

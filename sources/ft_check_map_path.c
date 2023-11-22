@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_error.c                                         :+:      :+:    :+:   */
+/*   ft_check_map_path.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tlassere <tlassere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/19 18:52:58 by tlassere          #+#    #+#             */
-/*   Updated: 2023/11/22 01:18:18 by tlassere         ###   ########.fr       */
+/*   Created: 2023/11/22 01:01:34 by tlassere          #+#    #+#             */
+/*   Updated: 2023/11/22 01:14:27 by tlassere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/ft_error.h"
+#include "../headers/ft_check_map.h"
 
-void	ft_error(int err)
+int	ft_check_map_path(char *path)
 {
-	if (errno == EFAULT)
-		perror("Error\n");
-	if (err == -1)
-		ft_printf(ERROR_REC);
-	if (err == -2)
-		ft_printf(ERROR_ITEM);
-	if (err == -3)
-		ft_printf(ERROR_FLOOD);
-	if (err == -4)
-		ft_printf(ERROR_PATH);
+	size_t	len;
+
+	len = ft_strlen(path);
+	if (len < 4)
+		return (-1);
+	if (ft_strcmp_s2(path + len - 4, ".ber"))
+		return (-1);
+	return (0);
 }

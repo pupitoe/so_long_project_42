@@ -33,6 +33,8 @@ char	**ft_check_map(char *path)
 	char	**map;
 	int		ret;
 
+	if (ft_check_map_path(path) == -1)
+		return (ft_error(-4), NULL);
 	lst_map = ft_get_map(path);
 	if (lst_map == NULL)
 		return (NULL);

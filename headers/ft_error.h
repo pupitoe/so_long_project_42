@@ -6,7 +6,7 @@
 /*   By: tlassere <tlassere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 18:54:16 by tlassere          #+#    #+#             */
-/*   Updated: 2023/11/20 14:51:38 by tlassere         ###   ########.fr       */
+/*   Updated: 2023/11/22 01:20:14 by tlassere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 E, one : P, one or many : C)\n"
 # define ERROR_FLOOD "Error\nThe player d'ont get any items or/and the exit \
 is not accecible\n"
+# define ERROR_PATH "Your file is not a .ber\n"
 
 void	ft_error(int err);
 

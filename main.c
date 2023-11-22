@@ -6,7 +6,7 @@
 /*   By: tlassere <tlassere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 15:02:13 by tlassere          #+#    #+#             */
-/*   Updated: 2023/11/20 15:15:22 by tlassere         ###   ########.fr       */
+/*   Updated: 2023/11/22 01:20:43 by tlassere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void	ft_key_bindig(void *param)
 
 int32_t	main(void)
 {
-	char **uwuss = ft_check_map("./maps/wad.ber");
+	char **uwuss = ft_check_map("./map/wad.ber");
 
 
 	

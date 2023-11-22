@@ -6,6 +6,7 @@ SOURCES =	main.c \
 			sources/ft_check_map_rec.c \
 			sources/ft_map_content.c \
 			sources/ft_check_map_items.c \
+			sources/ft_check_map_path.c \
 			sources/ft_error.c \
 			sources/ft_player.c
 OBJS = $(SOURCES:.c=.o)
