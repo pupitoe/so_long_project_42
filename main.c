@@ -6,7 +6,7 @@
 /*   By: tlassere <tlassere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 15:02:13 by tlassere          #+#    #+#             */
-/*   Updated: 2023/11/23 12:58:40 by tlassere         ###   ########.fr       */
+/*   Updated: 2023/11/23 13:39:19by tlassere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 #include <stdio.h>
 #include <unistd.h>
 #include "./headers/ft_check_map.h"
+#include "./headers/ft_player.h"
 #include "MLX42/include/MLX42/MLX42.h"
 #define WIDTH 256
 #define HEIGHT 256
@@ -61,7 +62,17 @@ int32_t	main(void)
 {
 	char **uwuss = ft_check_map("./maps/wad.ber");
 
+	char buffer[1];
+	while (scanf("%c", buffer))
+	{
+		if (*buffer == 'p')
+			break ;
+		if (ft_player_action(uwuss, ft_toupper(*buffer)) == -1)
+			break;
+		ft_printf("%w\n", uwuss);
+	}
 	ft_free_tab(uwuss);
+	
 	// MLX allows you to define its core behaviour before startup.
 	// mlx_set_setting(MLX_MAXIMIZED, true);
 	// mlx_t* mlx = mlx_init(WIDTH, HEIGHT, "So_long", true);

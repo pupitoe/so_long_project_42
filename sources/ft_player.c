@@ -6,7 +6,7 @@
 /*   By: tlassere <tlassere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 17:27:48 by tlassere          #+#    #+#             */
-/*   Updated: 2023/11/23 12:44:13 by tlassere         ###   ########.fr       */
+/*   Updated: 2023/11/23 13:50:16 by tlassere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	entyty_fdp(void)
 	return (0);
 }
 
-int	player_change_map(char **map, t_pos player, t_pos dest)
+static int	player_change_map(char **map, t_pos player, t_pos dest)
 {
 	int	buffer;
 
@@ -44,11 +44,11 @@ static int	ft_player_move(char **map, int action)
 
 	buffer = 0;
 	if (action == 'W')
-		buffer = player_change_map(map, ft_get_spawn(map), (t_pos){0, 1, 0});
+		buffer = player_change_map(map, ft_get_spawn(map), (t_pos){0, -1, 0});
 	if (action == 'A')
 		buffer = player_change_map(map, ft_get_spawn(map), (t_pos){-1, 0, 0});
 	if (action == 'S')
-		buffer = player_change_map(map, ft_get_spawn(map), (t_pos){0, -1, 0});
+		buffer = player_change_map(map, ft_get_spawn(map), (t_pos){0, 1, 0});
 	if (action == 'D')
 		buffer = player_change_map(map, ft_get_spawn(map), (t_pos){1, 0, 0});
 	if (entyty_fdp())
