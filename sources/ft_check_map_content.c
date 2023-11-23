@@ -6,7 +6,7 @@
 /*   By: tlassere <tlassere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 18:07:58 by tlassere          #+#    #+#             */
-/*   Updated: 2023/11/19 15:45:29 by tlassere         ###   ########.fr       */
+/*   Updated: 2023/11/23 19:36:49 by tlassere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ t_list	*ft_put_line(t_list **lst, int fd)
 		(*end_line) = '\0';
 	element = ft_lstnew(line);
 	if (element == NULL)
-		return (NULL);
+		return (free(line), NULL);
 	ft_lstadd_back(lst, element);
 	return (ft_put_line(lst, fd));
 }
@@ -40,10 +40,7 @@ char	**ft_get_tab(t_list *lst)
 	lst_size = ft_lstsize(lst);
 	tabs = malloc((lst_size + 1) * sizeof(char **));
 	if (tabs == NULL)
-	{
-		ft_lstclear(&lst, &free);
-		return (NULL);
-	}
+		return (ft_lstclear(&lst, &free), NULL);
 	tabs[lst_size] = NULL;
 	i = 0;
 	while (i < lst_size)

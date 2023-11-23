@@ -6,7 +6,7 @@
 /*   By: tlassere <tlassere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 17:27:48 by tlassere          #+#    #+#             */
-/*   Updated: 2023/11/23 16:42:51 by tlassere         ###   ########.fr       */
+/*   Updated: 2023/11/23 18:22:30 by tlassere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,10 @@ static int	player_change_map(char **map, t_pos player, t_pos dest)
 		return (-1);
 	else if (map[player.y + dest.y][player.x + dest.x] == 'E')
 		return (3);
-	else
-	{
-		if (map[player.y + dest.y][player.x + dest.x] == 'C')
-			buffer = 2;
-		map[player.y][player.x] = '0';
-		map[player.y + dest.y][player.x + dest.x] = 'P';
-	}
+	if (map[player.y + dest.y][player.x + dest.x] == 'C')
+		buffer = 2;
+	map[player.y][player.x] = '0';
+	map[player.y + dest.y][player.x + dest.x] = 'P';
 	return (buffer);
 }
 
@@ -53,13 +50,16 @@ static int	ft_player_move(char **map, int action)
 
 int	ft_player_action(char **map, int action)
 {
-	static t_player	player = {0, 0, 0};
+	static t_player	player = {0, 0};
 	int				buffer;
 
 	if (ft_strchr("WASD", action))
 	{
 		buffer = ft_player_move(map, action);
-		player.move += buffer;
+		if (buffer == 2)
+			player.item_count += 1;
+		if (buffer > 0)
+			player.move += buffer;
 		return (buffer);
 	}
 	if (action == 1)

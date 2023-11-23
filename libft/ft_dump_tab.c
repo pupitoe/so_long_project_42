@@ -6,7 +6,7 @@
 /*   By: tlassere <tlassere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 23:06:48 by tlassere          #+#    #+#             */
-/*   Updated: 2023/11/17 23:23:38 by tlassere         ###   ########.fr       */
+/*   Updated: 2023/11/23 19:41:39 by tlassere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	**ft_dump_tab(char **tab)
 	while (tab[tab_size])
 		tab_size++;
 	new_tab = malloc((tab_size + 1) * sizeof(char **));
-	if (tab == NULL)
+	if (new_tab == NULL)
 		return (NULL);
 	new_tab[tab_size] = NULL;
 	tab_size = 0;

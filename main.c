@@ -62,11 +62,14 @@ int32_t	main(void)
 {
 	char **uwuss = ft_check_map("./maps/wad.ber");
 
+	if (uwuss == NULL)
+		return (0);
 	char buffer[1];
 	while (scanf("%c", buffer))
 	{
 		if (*buffer == 'p')
 			break ;
+		ft_printf("nb move %d\n", ft_player_action(NULL, 1));
 		if (ft_player_action(uwuss, ft_toupper(*buffer)) == -1)
 			break;
 		ft_printf("%w\n", uwuss);
