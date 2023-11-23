@@ -6,7 +6,7 @@
 /*   By: tlassere <tlassere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 21:25:07 by tlassere          #+#    #+#             */
-/*   Updated: 2023/11/21 17:55:32 by tlassere         ###   ########.fr       */
+/*   Updated: 2023/11/23 12:43:47 by tlassere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ typedef struct s_player
 {
 	int	move;
 	int	item_count;
+	int	item_left;
 }				t_player;
 
 #endif

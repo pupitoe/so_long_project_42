@@ -6,7 +6,7 @@
 /*   By: tlassere <tlassere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 17:27:48 by tlassere          #+#    #+#             */
-/*   Updated: 2023/11/22 01:16:42 by tlassere         ###   ########.fr       */
+/*   Updated: 2023/11/23 12:44:13 by tlassere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ static int	ft_player_move(char **map, int action)
 
 int	ft_player_action(char **map, int action)
 {
-	static t_player	player = {0, 0};
+	static t_player	player = {0, 0, 0};
 	int				buffer;
 
 	if (ft_strchr("WASD", action))

@@ -6,7 +6,7 @@
 /*   By: tlassere <tlassere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 15:02:13 by tlassere          #+#    #+#             */
-/*   Updated: 2023/11/22 01:20:43 by tlassere         ###   ########.fr       */
+/*   Updated: 2023/11/23 12:58:40 by tlassere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,12 +59,9 @@ void	ft_key_bindig(void *param)
 
 int32_t	main(void)
 {
-	char **uwuss = ft_check_map("./map/wad.ber");
+	char **uwuss = ft_check_map("./maps/wad.ber");
 
-
-	
-	ft_printf("%w\n", uwuss);
-	free(uwuss);
+	ft_free_tab(uwuss);
 	// MLX allows you to define its core behaviour before startup.
 	// mlx_set_setting(MLX_MAXIMIZED, true);
 	// mlx_t* mlx = mlx_init(WIDTH, HEIGHT, "So_long", true);
