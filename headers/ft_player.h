@@ -6,7 +6,7 @@
 /*   By: tlassere <tlassere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 21:25:07 by tlassere          #+#    #+#             */
-/*   Updated: 2023/11/23 13:43:24 by tlassere         ###   ########.fr       */
+/*   Updated: 2023/11/23 16:02:24 by tlassere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # include "./ft_pos.h"
 # include "ft_map_content.h"
 # include "../libft/libft.h"
+# include "./ft_antity.h"
 
 typedef struct s_player
 {

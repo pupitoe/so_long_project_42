@@ -6,16 +6,11 @@
 /*   By: tlassere <tlassere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 17:27:48 by tlassere          #+#    #+#             */
-/*   Updated: 2023/11/23 13:50:16 by tlassere         ###   ########.fr       */
+/*   Updated: 2023/11/23 16:42:51 by tlassere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/ft_player.h"
-
-int	entyty_fdp(void)
-{
-	return (0);
-}
 
 static int	player_change_map(char **map, t_pos player, t_pos dest)
 {
@@ -51,7 +46,7 @@ static int	ft_player_move(char **map, int action)
 		buffer = player_change_map(map, ft_get_spawn(map), (t_pos){0, 1, 0});
 	if (action == 'D')
 		buffer = player_change_map(map, ft_get_spawn(map), (t_pos){1, 0, 0});
-	if (entyty_fdp())
+	if (ft_antity(map) == -1)
 		return (-1);
 	return (buffer);
 }

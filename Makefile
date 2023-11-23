@@ -8,6 +8,7 @@ SOURCES =	main.c \
 			sources/ft_check_map_items.c \
 			sources/ft_check_map_path.c \
 			sources/ft_error.c \
+			sources/ft_antity.c\
 			sources/ft_player.c
 OBJS = $(SOURCES:.c=.o)
 NAME = so_long
