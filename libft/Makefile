@@ -44,9 +44,7 @@ SOURCES = ft_atoi.c \
 		  ft_printf/sources/ft_printf_utils.c \
 		  ft_printf/sources/ft_printf_utils2.c \
 		  ft_dump_tab.c \
-		  ft_free_tabs.c \
-		  ox_malloc.c
-
+		  ft_free_tabs.c
 
 BONUS_SRC  = ft_lstnew \
 			 ft_lstadd_front \

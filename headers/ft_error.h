@@ -6,7 +6,7 @@
 /*   By: tlassere <tlassere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 18:54:16 by tlassere          #+#    #+#             */
-/*   Updated: 2023/11/22 01:20:14 by tlassere         ###   ########.fr       */
+/*   Updated: 2023/11/24 13:20:57 by tlassere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # include <errno.h>
 # include <stdio.h>
 # include "../libft/libft.h"
+# define MALLOC_FAIL -12
 
 # define ERROR_REC "Error\nYour map is not a rec or is not enclosed by walls\n"
 # define ERROR_ITEM "Error\nCount items is not valid. (one : \

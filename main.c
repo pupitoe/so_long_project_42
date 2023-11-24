@@ -74,6 +74,7 @@ int32_t	main(void)
 			break;
 		ft_printf("%w\n", uwuss);
 	}
+	ft_printf("nb move %d\n", ft_player_action(NULL, 1));
 	ft_free_tab(uwuss);
 	
 	// MLX allows you to define its core behaviour before startup.
