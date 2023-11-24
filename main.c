@@ -69,12 +69,13 @@ int32_t	main(void)
 	{
 		if (*buffer == 'p')
 			break ;
-		ft_printf("nb move %d\n", ft_player_action(NULL, 1));
-		if (ft_player_action(uwuss, ft_toupper(*buffer)) == -1)
+		ft_printf("nb move %d\n", ft_player_action(uwuss, 1));
+		if (ft_player_action(uwuss, ft_toupper(*buffer)) >= -1)
 			break;
 		ft_printf("%w\n", uwuss);
 	}
-	ft_printf("nb move %d\n", ft_player_action(NULL, 1));
+	ft_printf("%w\n", uwuss);
+	ft_printf("nb move %d\n", ft_player_action(uwuss, 1));
 	ft_free_tab(uwuss);
 	
 	// MLX allows you to define its core behaviour before startup.

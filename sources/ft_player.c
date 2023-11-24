@@ -6,7 +6,7 @@
 /*   By: tlassere <tlassere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 17:27:48 by tlassere          #+#    #+#             */
-/*   Updated: 2023/11/24 14:32:37 by tlassere         ###   ########.fr       */
+/*   Updated: 2023/11/24 19:53:37 by tlassere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,28 +48,27 @@ static int	ft_player_move(char **map, int action)
 	return (buffer);
 }
 
-// static int	ft_init_player(t_player *player, char **map)
-// {
-// 	t_item_count	*buffer;
+static int	ft_init_player(t_player *player, char **map)
+{
+	t_item_count	*buffer;
 
-// 	if (player->item_map)
-// 		return (0);
-// 	buffer = ft_check_map_items(map);
-// 	if (buffer == NULL)
-// 		return (MALLOC_FAIL);
-// 	// player->item_map = buffer->items;
-// 	printf("oo\n");
-// 	free(buffer);
-// 	return (1);
-// }
+	if (player->item_map)
+		return (0);
+	buffer = ft_check_map_items(map);
+	if (buffer == NULL)
+		return (MALLOC_FAIL);
+	player->item_map = buffer->items;
+	free(buffer);
+	return (1);
+}
 
 int	ft_player_action(char **map, int action)
 {
 	static t_player	player = {0, 0, 0};
 	int				buffer;
 
-	// if (ft_init_player(&player, map) == MALLOC_FAIL)
-	// 	return (MALLOC_FAIL);
+	if (ft_init_player(&player, map) == MALLOC_FAIL)
+		return (MALLOC_FAIL);
 	if (ft_strchr("WASD", action))
 	{
 		buffer = ft_player_move(map, action);
