@@ -6,7 +6,7 @@
 /*   By: tlassere <tlassere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 17:27:48 by tlassere          #+#    #+#             */
-/*   Updated: 2023/11/24 19:53:37 by tlassere         ###   ########.fr       */
+/*   Updated: 2023/11/25 19:09:29 by tlassere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,8 @@ int	ft_player_action(char **map, int action)
 		buffer = ft_player_move(map, action);
 		if (buffer == 2)
 			player.item_count += 1;
-		if (buffer == 1 || buffer == 2 || 
-			(buffer == 3 && player.item_map == player.item_count))
+		if (buffer == 1 || buffer == 2
+			|| (buffer == 3 && player.item_map == player.item_count))
 			player.move += 1;
 		return (buffer);
 	}

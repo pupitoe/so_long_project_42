@@ -6,7 +6,7 @@
 /*   By: tlassere <tlassere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 18:32:59 by tlassere          #+#    #+#             */
-/*   Updated: 2023/11/24 19:53:50 by tlassere         ###   ########.fr       */
+/*   Updated: 2023/11/25 19:08:37 by tlassere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static int	ft_check_content(t_item_count *lst)
 	return (0);
 }
 
-t_item_count	*ft_check_map_items(char  **map)
+t_item_count	*ft_check_map_items(char **map)
 {
 	t_item_count	*lst;
 
