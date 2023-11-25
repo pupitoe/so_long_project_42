@@ -46,3 +46,11 @@ E : Exit
 C : Item
 
 M : Entity
+
+
+
+
+## Credit
+### resource pack
+for enemys and player : 2D Pixel Art Little Apple Sprites (itch.io)
+auther image, code : me
