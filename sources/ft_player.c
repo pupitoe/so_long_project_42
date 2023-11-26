@@ -6,7 +6,7 @@
 /*   By: tlassere <tlassere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 17:27:48 by tlassere          #+#    #+#             */
-/*   Updated: 2023/11/25 19:09:29 by tlassere         ###   ########.fr       */
+/*   Updated: 2023/11/26 16:55:21 by tlassere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,9 +79,9 @@ int	ft_player_action(char **map, int action)
 			player.move += 1;
 		return (buffer);
 	}
-	if (action == 1)
+	if (action == PLAYER_CMD_GET_MOVE)
 		return (player.move);
-	if (action == 2)
+	if (action == PLAYER_CMD_GET_ITEM)
 		return (player.item_count);
 	return (0);
 }

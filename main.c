@@ -10,74 +10,55 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include <stdio.h>
-// int main(void)
-// {
-	
-// 	return (1);
-// }
 #include "libft/libft.h"
-#include <stdlib.h>
 #include <stdio.h>
-#include <unistd.h>
 #include "./headers/ft_check_map.h"
 #include "./headers/ft_player.h"
 #include "MLX42/include/MLX42/MLX42.h"
 #define WIDTH 256
 #define HEIGHT 256
 
-// // Exit the program as failure.
-// static void ft_error(void)
-// {
-// 	fprintf(stderr, "%s", mlx_strerror(mlx_errno));
-// 	exit(exit_failure);
-// }
-
-// Print the window width and height.
-
-// void putrec(mlx_t *mlx, t_pos vec_start, t_pos vec_end)
-// {
-// 	mlx_image_t* img;
-// 	int	top;
-// 	int	left;
-
-// 	left = vec_start.y;
-// 	top = vec_start.x;
-// 	img = mlx_new_image(mlx, vec_end.x - vec_start.x, vec_end.y - vec_start.y);
-// 	ft_memset(img->pixels, 100, img->width * img->height * sizeof(int32_t));
-// 	if (!img || (mlx_image_to_window(mlx, img, left, top) < 0))
-// 		ft_error();
-// }
-void	ft_key_bindig(void *param)
+void	mlx_key_bind(mlx_key_data_t keydata, void *param)
 {
 	mlx_t *mlx;
 
 	mlx = param;
-	if (mlx_is_key_down(mlx, MLX_KEY_ESCAPE))
+	(void)mlx;
+	if (keydata.key == MLX_KEY_ESCAPE && keydata.action == MLX_RELEASE)
 		mlx_close_window(mlx);
 	return ;
 }
 
+
 int32_t	main(void)
 {
-	char **uwuss = ft_check_map("./maps/wad.ber");
+	// char **uwuss = ft_check_map("./maps/wad.ber");
 
-	if (uwuss == NULL)
-		return (0);
-	char buffer[1];
-	while (scanf("%c", buffer))
-	{
-		if (*buffer == 'p')
-			break ;
-		ft_printf("nb move %d\n", ft_player_action(uwuss, 1));
-		if (ft_player_action(uwuss, ft_toupper(*buffer)) == -1)
-			break;
-		ft_printf("%w\n", uwuss);
-	}
-	ft_printf("%w\n", uwuss);
-	ft_printf("nb move %d\n", ft_player_action(uwuss, 1));
-	ft_free_tab(uwuss);
+	// if (uwuss == NULL)
+	// 	return (0);
+	// char buffer[1];
+	// while (scanf("%c", buffer))
+	// {
+	// 	if (*buffer == 'p')
+	// 		break ;
+	// 	ft_printf("nb move %d\n", ft_player_action(uwuss, 1));
+	// 	if (ft_player_action(uwuss, ft_toupper(*buffer)) == -1)
+	// 		break;
+	// 	ft_printf("%w\n", uwuss);
+	// }
+	// ft_printf("%w\n", uwuss);
+	// ft_printf("nb move %d\n", ft_player_action(uwuss, 1));
+	// ft_free_tab(uwuss);
 	
+	mlx_t	*mlx;
+
+	if (!(mlx = mlx_init(WIDTH, HEIGHT, "so_long", 1)))
+		return (EXIT_FAILURE);
+
+	mlx_key_hook(mlx, &mlx_key_bind, mlx);
+	mlx_loop(mlx);
+	mlx_terminate(mlx);
+	return (EXIT_SUCCESS);
 	// MLX allows you to define its core behaviour before startup.
 	// mlx_set_setting(MLX_MAXIMIZED, true);
 	// mlx_t* mlx = mlx_init(WIDTH, HEIGHT, "So_long", true);
@@ -101,5 +82,4 @@ int32_t	main(void)
 	// mlx_loop_hook(mlx, ft_key_bindig, mlx);
 	// mlx_loop(mlx);
 	// mlx_terminate(mlx);
-	// return (EXIT_SUCCESS);
 }
