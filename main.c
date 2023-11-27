@@ -17,7 +17,6 @@
 #include "MLX42/include/MLX42/MLX42.h"
 #define WIDTH 256
 #define HEIGHT 256
-#include <limits.h>
 
 void	mlx_key_bind(mlx_key_data_t keydata, void *param)
 {
@@ -37,7 +36,6 @@ typedef struct hukk
 	
 } t_hukk;
 
-// int	push_map(char **map, t)
 
 typedef struct s_rec
 {
@@ -79,24 +77,24 @@ typedef	struct s_textures
 
 
 // check if fail load images/textures
-t_textures	ft_set_textures(mlx_t *mlx)
-{
-	t_textures	textures;
+// t_textures	ft_set_textures(mlx_t *mlx)
+// {
+// 	t_textures	textures;
 
-	textures.wall_t = mlx_load_png("./resource_pack/1.png");
-	textures.wall_i = mlx_texture_to_image(mlx, textures.wall_t);
-	textures.floor_t = mlx_load_png("./resource_pack/0.png");
-	textures.floor_i = mlx_texture_to_image(mlx, textures.floor_t);
-	textures.entity_t = mlx_load_png("./resource_pack/M/M.png");
-	textures.entity_i = mlx_texture_to_image(mlx, textures.entity_t);
-	textures.player_t = mlx_load_png("./resource_pack/P/P_0.png");
-	textures.player_i = mlx_texture_to_image(mlx, textures.player_t);
-	textures.item_t = mlx_load_png("./resource_pack/C.png");
-	textures.item_i = mlx_texture_to_image(mlx, textures.item_t);
-	textures.item_t = mlx_load_png("./resource_pack/C.png");
-	textures.item_i = mlx_texture_to_image(mlx, textures.item_t);
-	return (textures);
-}
+// 	textures.wall_t = mlx_load_png("./resource_pack/1.png");
+// 	textures.wall_i = mlx_texture_to_image(mlx, textures.wall_t);
+// 	textures.floor_t = mlx_load_png("./resource_pack/0.png");
+// 	textures.floor_i = mlx_texture_to_image(mlx, textures.floor_t);
+// 	textures.entity_t = mlx_load_png("./resource_pack/M/M.png");
+// 	textures.entity_i = mlx_texture_to_image(mlx, textures.entity_t);
+// 	textures.player_t = mlx_load_png("./resource_pack/P/P_0.png");
+// 	textures.player_i = mlx_texture_to_image(mlx, textures.player_t);
+// 	textures.item_t = mlx_load_png("./resource_pack/C.png");
+// 	textures.item_i = mlx_texture_to_image(mlx, textures.item_t);
+// 	textures.item_t = mlx_load_png("./resource_pack/C.png");
+// 	textures.item_i = mlx_texture_to_image(mlx, textures.item_t);
+// 	return (textures);
+// }
 
 int	ft_display_texture(mlx_t *mlx, t_pos pos, mlx_image_t *img)
 {
@@ -141,9 +139,11 @@ int	ft_load_map(char **map, mlx_t *mlx, t_textures textures)
 	return (0);
 }
 
+
+
 int32_t	main(void)
 {
-	char **map = ft_check_map("./maps/wad.ber");
+	// char **map = ft_check_map("./maps/wad.ber");
 
 	// if (uwuss == NULL)
 	// 	return (0);
@@ -160,18 +160,18 @@ int32_t	main(void)
 	// ft_printf("%w\n", uwuss);
 	// ft_printf("nb move %d\n", ft_player_action(uwuss, 1));
 	
-	t_rec		window_size;
-	t_textures 	textures;
-	mlx_t	*mlx;
-	window_size = ft_get_window(map, 32);	
+	// t_rec		window_size;
+	// t_textures 	textures;
+	// mlx_t	*mlx;
+	// window_size = ft_get_window(map, 32);	
 
-	if (!(mlx = mlx_init(window_size.width, window_size.height, "So_long", 1)))
-		return (EXIT_FAILURE);
-	textures = ft_set_textures(mlx);
-	ft_load_map(map, mlx, textures);
-	mlx_key_hook(mlx, &mlx_key_bind, mlx);
-	mlx_loop(mlx);
-	mlx_terminate(mlx);
-	free(map);
-	return (EXIT_SUCCESS);
+	// if (!(mlx = mlx_init(window_size.width, window_size.height, "So_long", 1)))
+	// 	return (EXIT_FAILURE);
+	// textures = ft_set_textures(mlx);
+	// ft_load_map(map, mlx, textures);
+	// mlx_key_hook(mlx, &mlx_key_bind, mlx);
+	// mlx_loop(mlx);
+	// mlx_terminate(mlx);
+	// free(map);
+	// return (EXIT_SUCCESS);
 }
