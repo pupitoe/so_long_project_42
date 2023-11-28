@@ -6,7 +6,7 @@
 /*   By: tlassere <tlassere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 21:25:07 by tlassere          #+#    #+#             */
-/*   Updated: 2023/11/26 17:01:57 by tlassere         ###   ########.fr       */
+/*   Updated: 2023/11/28 15:55:37 by tlassere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 # define PLAYER_GET_ITEM 2
 # define PLAYER_CMD_GET_MOVE 1
 # define PLAYER_CMD_GET_ITEM 2
+# define PLAYER_GET_MOVE 1
 
 typedef struct s_player {
 	int	move;

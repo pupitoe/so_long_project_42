@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_graphyque.h                                     :+:      :+:    :+:   */
+/*   ft_graphique.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tlassere <tlassere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 16:44:02 by tlassere          #+#    #+#             */
-/*   Updated: 2023/11/28 01:46:54 by tlassere         ###   ########.fr       */
+/*   Updated: 2023/11/28 15:11:04 by tlassere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # include "../MLX42/include/MLX42/MLX42.h"
 # include "../libft/libft.h"
 # include "./ft_pos.h"
+# include "ft_error.h"
 # define IMG_SIZE 32
 
 typedef struct s_graphique

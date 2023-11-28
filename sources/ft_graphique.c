@@ -6,7 +6,7 @@
 /*   By: tlassere <tlassere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 16:42:52 by tlassere          #+#    #+#             */
-/*   Updated: 2023/11/28 01:46:54 by tlassere         ###   ########.fr       */
+/*   Updated: 2023/11/28 16:07:20 by tlassere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,30 +32,37 @@ t_graphique	*ft_set_textures(mlx_t *mlx, char *path, char *name)
 	return (element);
 }
 
+int			ft_uwuss(mlx_t *mlx, t_graphique **ptr, char *name, char *path)
+{
+	char		*dump_name;
+	t_graphique	*tmp;
+	
+	dump_name = ft_strdup(name);
+	if (dump_name == NULL)
+		return (MALLOC_FAIL);
+	tmp = ft_set_textures(mlx, path, dump_name);
+	if (tmp == NULL)
+		return (free(dump_name), MALLOC_FAIL);
+	ft_graphique_addback(ptr, tmp);
+	return (1);
+}
+
 t_graphique	*ft_test(mlx_t *mlx)
 {
 	t_graphique	*ptr;
-	t_graphique	*tmp;
-	int			i;
-	char		**files;
-	char		*path;
 
-	i = 0;
-	files = ft_split("0 1 C", ' ');
-	if (files == NULL)
-		return (0);
-	path = ft_strdup("./r/L.png");
-	if (path == NULL)
-		return (ft_free_tab(files), NULL);
 	ptr = NULL;
-	while (files[i])
-	{
-		path[4] = files[i][0];
-		tmp = ft_set_textures(mlx, path, files[i]);
-		if (tmp == NULL)
-			return (free(path), free(files), ft_graphique_free(&ptr, mlx), NULL);
-		ft_graphique_addback(&ptr, tmp);
-		i++;
-	}	
-	return (free(path), free(files), ptr);
+	if (ft_uwuss(mlx, &ptr, "0", "./r/0.png") == MALLOC_FAIL)
+		return (ft_graphique_free(&ptr, mlx), NULL);
+	if (ft_uwuss(mlx, &ptr, "1", "./r/1.png") == MALLOC_FAIL)
+		return (ft_graphique_free(&ptr, mlx), NULL);
+	if (ft_uwuss(mlx, &ptr, "C", "./r/C.png") == MALLOC_FAIL)
+		return (ft_graphique_free(&ptr, mlx), NULL);
+	if (ft_uwuss(mlx, &ptr, "M", "./r/M/M.png") == MALLOC_FAIL)
+		return (ft_graphique_free(&ptr, mlx), NULL);
+	if (ft_uwuss(mlx, &ptr, "P", "./r/P/P.png") == MALLOC_FAIL)
+		return (ft_graphique_free(&ptr, mlx), NULL);
+	if (ft_uwuss(mlx, &ptr, "E", "./r/E.png") == MALLOC_FAIL)
+		return (ft_graphique_free(&ptr, mlx), NULL);
+	return (ptr);
 }
