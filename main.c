@@ -36,11 +36,6 @@ void	ft_free_param(t_mlx_key_param *param)
 		ft_free_tab(param->map);
 }
 
-void	ft_close_window(t_mlx_key_param *param)
-{
-	mlx_close_window(param->mlx);
-}
-
 void	ft_get_key_player(t_mlx_key_param *param, mlx_key_data_t keydata)
 {
 	if (keydata.key == MLX_KEY_W)
@@ -52,22 +47,15 @@ void	ft_get_key_player(t_mlx_key_param *param, mlx_key_data_t keydata)
 	if (keydata.key == MLX_KEY_D)
 		param->player_status = ft_player_action(param->map, 'D');
 	param->player_move = ft_player_action(param->map, PLAYER_CMD_GET_MOVE);
-	ft_load_map(param->map, param->mlx, param->graphique);
-
-	ft_printf("%w\n", param->map);
+	ft_dynamique_change(param->map, param->mlx, param->graphique);
 }
 
 void	mlx_key_bind(mlx_key_data_t keydata, void *param)
 {
-	mlx_t *mlx;
-
-	mlx = param;
-	(void)mlx;
 	if (keydata.key == MLX_KEY_ESCAPE && keydata.action == MLX_RELEASE)
-		ft_close_window(param);
+		mlx_close_window(((t_mlx_key_param *)param)->mlx);
 	if (keydata.action == MLX_PRESS)
 		ft_get_key_player(param, keydata);
-
 	return ;
 }
 
@@ -84,8 +72,12 @@ int32_t	main(void)
 	if (param.mlx == NULL)
 		return (EXIT_FAILURE);
 	if (!(param.graphique = ft_make_graphique_init(param.mlx)))
-		return (ft_close_window(&param), ft_free_param(&param), EXIT_FAILURE);
-	ft_load_map(param.map, param.mlx, param.graphique);
+		return (ft_free_param(&param), EXIT_FAILURE);
+	if (ft_load_map(param.map, param.mlx, param.graphique) == MALLOC_FAIL)
+		return (ft_free_param(&param), EXIT_FAILURE);
+	if (ft_dynamique_change(param.map, param.mlx, param.graphique) == 
+		MALLOC_FAIL)
+		return (ft_free_param(&param), EXIT_FAILURE);
 	mlx_key_hook(param.mlx, &mlx_key_bind, &param);
 	mlx_loop(param.mlx);
 	ft_free_param(&param);

@@ -6,7 +6,7 @@
 /*   By: tlassere <tlassere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 16:44:02 by tlassere          #+#    #+#             */
-/*   Updated: 2023/11/28 17:07:10 by tlassere         ###   ########.fr       */
+/*   Updated: 2023/11/28 19:14:24 by tlassere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,5 +49,6 @@ int			ft_load_map(char **map, mlx_t *mlx, t_graphique *textures);
 t_graphique *ft_make_graphique_dynamic(mlx_t *mlx);
 int ft_load_dinamique(mlx_t *mlx, t_graphique **ptr);
 t_graphique	*ft_make_graphique_init(mlx_t *mlx);
+int	ft_dynamique_change(char **map, mlx_t *mlx, t_graphique* graphique);
 
 #endif

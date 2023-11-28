@@ -36,9 +36,9 @@ $(NAME): $(OBJS) $(LIBFT) $(HEADERS) $(LIBMLXCOMPILE)
 clean:
 	@rm -rf $(OBJS)
 	@make -C libft clean
+	@rm -rf $(LIBMLX)/build
 
 fclean: clean
-	@rm -rf $(LIBMLX)/build
 	@make -C libft fclean
 	@rm -rf $(NAME)
 
