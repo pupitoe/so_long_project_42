@@ -10,7 +10,10 @@ SOURCES =	main.c \
 			sources/ft_error.c \
 			sources/ft_antity.c\
 			sources/ft_player.c \
-			sources/ft_graphyque.c
+			sources/ft_graphique.c \
+			sources/ft_graphique_lst_0.c \
+			sources/ft_graphique_lst_1.c \
+			sources/ft_graphique_map.c
 OBJS = $(SOURCES:.c=.o)
 NAME = so_long
 CFLAGS = -Wall -Wextra -Werror -g3
@@ -21,8 +24,8 @@ HEADERS =	headers/ft_check_map.h \
 			headers/ft_pos.h \
 			headers/ft_map_content.h	
 LIBFT=libft/libft.a
-LIBMLX = ./MLX42/
-LIBMLXCOMPILE = $(LIBMLX)build/libmlx42.a
+LIBMLX = ./MLX42
+LIBMLXCOMPILE = $(LIBMLX)/build/libmlx42.a
 LIBS = $(LIBMLXCOMPILE) -ldl -lglfw -pthread -lm $(LIBFT)
 
 all: $(NAME)
@@ -35,8 +38,8 @@ clean:
 	@make -C libft clean
 
 fclean: clean
+	@rm -rf $(LIBMLX)/build
 	@make -C libft fclean
-	@rm -rf $(LIBMLX)build
 	@rm -rf $(NAME)
 
 libft: $(LIBFT)
