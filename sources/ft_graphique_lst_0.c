@@ -6,7 +6,7 @@
 /*   By: tlassere <tlassere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 00:16:22 by tlassere          #+#    #+#             */
-/*   Updated: 2023/11/28 01:46:54 by tlassere         ###   ########.fr       */
+/*   Updated: 2023/11/28 16:56:14 by tlassere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,4 +66,15 @@ void	ft_graphique_addback(t_graphique **start, t_graphique *back)
 	}
 	(ft_graphique_last(*start))->next = back;
 	return ;
+}
+
+t_graphique	*ft_graphique_at(t_graphique *begin, int index)
+{
+	if (begin == NULL || index < 0)
+		return (NULL);
+	if (!index)
+		return (begin);
+	if (begin->next == NULL)
+		return (begin);
+	return (ft_graphique_at(begin->next, index - 1));
 }

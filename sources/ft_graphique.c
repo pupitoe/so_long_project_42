@@ -6,7 +6,7 @@
 /*   By: tlassere <tlassere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 16:42:52 by tlassere          #+#    #+#             */
-/*   Updated: 2023/11/28 16:07:20 by tlassere         ###   ########.fr       */
+/*   Updated: 2023/11/28 17:06:19 by tlassere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,11 @@ t_graphique	*ft_set_textures(mlx_t *mlx, char *path, char *name)
 	return (element);
 }
 
-int			ft_uwuss(mlx_t *mlx, t_graphique **ptr, char *name, char *path)
+int	ft_uwuss(mlx_t *mlx, t_graphique **ptr, char *name, char *path)
 {
 	char		*dump_name;
 	t_graphique	*tmp;
-	
+
 	dump_name = ft_strdup(name);
 	if (dump_name == NULL)
 		return (MALLOC_FAIL);
@@ -47,7 +47,26 @@ int			ft_uwuss(mlx_t *mlx, t_graphique **ptr, char *name, char *path)
 	return (1);
 }
 
-t_graphique	*ft_test(mlx_t *mlx)
+int ft_load_dinamique(mlx_t *mlx, t_graphique **ptr)
+{
+	t_graphique	*dynamique;
+	t_graphique	*static_part;
+
+	dynamique = ft_make_graphique_dynamic(mlx);
+	if (dynamique == NULL)
+		return (MALLOC_FAIL);
+	static_part = ft_graphique_at(*ptr, 1);
+	if (static_part->next == NULL)
+	{
+		static_part->next = dynamique;
+		return (0);
+	}
+	ft_graphique_free(&(static_part->next), mlx);
+	ft_graphique_addback(ptr, dynamique);
+	return (0);
+}
+
+t_graphique	*ft_make_graphique_init(mlx_t *mlx)
 {
 	t_graphique	*ptr;
 
@@ -56,6 +75,16 @@ t_graphique	*ft_test(mlx_t *mlx)
 		return (ft_graphique_free(&ptr, mlx), NULL);
 	if (ft_uwuss(mlx, &ptr, "1", "./r/1.png") == MALLOC_FAIL)
 		return (ft_graphique_free(&ptr, mlx), NULL);
+	if (ft_load_dinamique(mlx, &ptr) == MALLOC_FAIL)
+		return (ft_graphique_free(&ptr, mlx), NULL);
+	return (ptr);
+}
+
+t_graphique *ft_make_graphique_dynamic(mlx_t *mlx)
+{
+	t_graphique	*ptr;
+
+	ptr = NULL;
 	if (ft_uwuss(mlx, &ptr, "C", "./r/C.png") == MALLOC_FAIL)
 		return (ft_graphique_free(&ptr, mlx), NULL);
 	if (ft_uwuss(mlx, &ptr, "M", "./r/M/M.png") == MALLOC_FAIL)

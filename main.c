@@ -83,7 +83,7 @@ int32_t	main(void)
 	param.mlx = mlx_init(window_size.width, window_size.height, "So_long", 1);
 	if (param.mlx == NULL)
 		return (EXIT_FAILURE);
-	if (!(param.graphique = ft_test(param.mlx)))
+	if (!(param.graphique = ft_make_graphique_init(param.mlx)))
 		return (ft_close_window(&param), ft_free_param(&param), EXIT_FAILURE);
 	ft_load_map(param.map, param.mlx, param.graphique);
 	mlx_key_hook(param.mlx, &mlx_key_bind, &param);

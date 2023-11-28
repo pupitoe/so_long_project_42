@@ -6,7 +6,7 @@
 /*   By: tlassere <tlassere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 00:00:39 by tlassere          #+#    #+#             */
-/*   Updated: 2023/11/28 16:31:14 by tlassere         ###   ########.fr       */
+/*   Updated: 2023/11/28 16:39:31 by tlassere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,8 @@ int	ft_load_map(char **map, mlx_t *mlx, t_graphique *textures)
 		x = 0;
 		while (map[y][x])
 		{
-			if (ft_push_map(mlx, (map[y][x] == '1') + '0', (t_pos){x, y, 0}, textures) == -1)
+			if (ft_push_map(mlx, (map[y][x] == '1') + '0',
+				(t_pos){x, y, 0}, textures) == -1)
 				return (-1);
 			x++;
 		}
@@ -65,3 +66,4 @@ int	ft_load_map(char **map, mlx_t *mlx, t_graphique *textures)
 	}
 	return (0);
 }
+
