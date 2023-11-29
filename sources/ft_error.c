@@ -6,7 +6,7 @@
 /*   By: tlassere <tlassere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 18:52:58 by tlassere          #+#    #+#             */
-/*   Updated: 2023/11/22 01:18:18 by tlassere         ###   ########.fr       */
+/*   Updated: 2023/11/29 01:14:27 by tlassere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,20 @@ void	ft_error(int err)
 {
 	if (errno == EFAULT)
 		perror("Error\n");
-	if (err == -1)
-		ft_printf(ERROR_REC);
-	if (err == -2)
-		ft_printf(ERROR_ITEM);
-	if (err == -3)
-		ft_printf(ERROR_FLOOD);
-	if (err == -4)
-		ft_printf(ERROR_PATH);
+	else if (err == MALLOC_FAIL)
+		ft_printf("Error\nMalloc fail");
+	else if (err == ERROR_REC)
+		ft_printf("Error\nYour map is not a rec or is not enclosed by walls\n");
+	else if (err == ERROR_ITEM)
+	{
+		ft_printf("Error\nCount items is not valid. (one : E,");
+		ft_printf(" one : P, one or many : C)\n");
+	}
+	else if (err == ERROR_FLOOD)
+	{
+		ft_printf("Error\nThe player don't get any items or/and the exit");
+		ft_printf(" is not accecible\n");
+	}
+	else if (err == ERROR_PATH)
+		ft_printf("Your file is not a .ber\n");
 }

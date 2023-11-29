@@ -46,17 +46,36 @@ void	ft_get_key_player(t_mlx_key_param *param, mlx_key_data_t keydata)
 		param->player_status = ft_player_action(param->map, 'S');
 	if (keydata.key == MLX_KEY_D)
 		param->player_status = ft_player_action(param->map, 'D');
-	param->player_move = ft_player_action(param->map, PLAYER_CMD_GET_MOVE);
 	ft_dynamique_change(param->map, param->mlx, param->graphique);
+	if (param->player_status == KILL_PALYER)
+	{
+		mlx_close_window(param->mlx);
+		ft_printf("Killed by monster !!!!\n");
+	}
+	if (param->player_status == PLAYER_LEFT)
+	{
+		mlx_close_window(param->mlx);
+		ft_printf("You win the game GG !\n");
+	}
+	param->player_move = ft_player_action(param->map, PLAYER_CMD_GET_MOVE);
 }
 
 void	mlx_key_bind(mlx_key_data_t keydata, void *param)
 {
 	if (keydata.key == MLX_KEY_ESCAPE && keydata.action == MLX_RELEASE)
 		mlx_close_window(((t_mlx_key_param *)param)->mlx);
-	if (keydata.action == MLX_PRESS)
+	if (keydata.action == MLX_PRESS && (keydata.key == MLX_KEY_W ||
+		keydata.key == MLX_KEY_A || keydata.key == MLX_KEY_D  || 
+		keydata.key == MLX_KEY_S))
 		ft_get_key_player(param, keydata);
 	return ;
+}
+
+void	ft_error_malloc_fail_image(t_mlx_key_param param)
+{
+	ft_free_param(&param);
+	mlx_close_window(param.mlx);
+	ft_error(MALLOC_FAIL);
 }
 
 int32_t	main(void)

@@ -6,7 +6,7 @@
 /*   By: tlassere <tlassere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 17:27:48 by tlassere          #+#    #+#             */
-/*   Updated: 2023/11/26 16:55:21 by tlassere         ###   ########.fr       */
+/*   Updated: 2023/11/29 00:56:23 by tlassere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,11 +72,13 @@ int	ft_player_action(char **map, int action)
 	if (ft_strchr("WASD", action))
 	{
 		buffer = ft_player_move(map, action);
-		if (buffer == 2)
+		if (buffer == PLAYER_GET_ITEM)
 			player.item_count += 1;
-		if (buffer == 1 || buffer == 2
-			|| (buffer == 3 && player.item_map == player.item_count))
+		if (buffer == PLAYER_MOVE || buffer == PLAYER_GET_ITEM
+			|| (buffer == PLAYER_LEFT && player.item_map == player.item_count))
 			player.move += 1;
+		if (buffer == PLAYER_LEFT && player.item_map != player.item_count)
+			buffer = PLAYER_NO_MOVE;
 		return (buffer);
 	}
 	if (action == PLAYER_CMD_GET_MOVE)

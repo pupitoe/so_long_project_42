@@ -6,7 +6,7 @@
 /*   By: tlassere <tlassere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 16:42:52 by tlassere          #+#    #+#             */
-/*   Updated: 2023/11/28 19:27:37 by tlassere         ###   ########.fr       */
+/*   Updated: 2023/11/29 00:30:14 by tlassere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,11 +85,11 @@ t_graphique *ft_make_graphique_dynamic(mlx_t *mlx)
 	t_graphique	*ptr;
 
 	ptr = NULL;
+	if (ft_uwuss(mlx, &ptr, "P", "./r/P/P.png") == MALLOC_FAIL)
+		return (ft_graphique_free(&ptr, mlx), NULL);
 	if (ft_uwuss(mlx, &ptr, "C", "./r/C.png") == MALLOC_FAIL)
 		return (ft_graphique_free(&ptr, mlx), NULL);
 	if (ft_uwuss(mlx, &ptr, "M", "./r/M/M.png") == MALLOC_FAIL)
-		return (ft_graphique_free(&ptr, mlx), NULL);
-	if (ft_uwuss(mlx, &ptr, "P", "./r/P/P.png") == MALLOC_FAIL)
 		return (ft_graphique_free(&ptr, mlx), NULL);
 	if (ft_uwuss(mlx, &ptr, "E", "./r/E.png") == MALLOC_FAIL)
 		return (ft_graphique_free(&ptr, mlx), NULL);
