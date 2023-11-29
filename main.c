@@ -11,13 +11,10 @@
 /* ************************************************************************** */
 
 #include "libft/libft.h"
-#include <stdio.h>
 #include "./headers/ft_check_map.h"
 #include "./headers/ft_player.h"
 #include "MLX42/include/MLX42/MLX42.h"
 #include "./headers/ft_graphique.h"
-#define WIDTH 256
-#define HEIGHT 256
 
 typedef struct s_mlx_key_param
 {
@@ -46,7 +43,14 @@ void	ft_get_key_player(t_mlx_key_param *param, mlx_key_data_t keydata)
 		param->player_status = ft_player_action(param->map, 'S');
 	if (keydata.key == MLX_KEY_D)
 		param->player_status = ft_player_action(param->map, 'D');
-	ft_dynamique_change(param->map, param->mlx, param->graphique);
+
+	if (ft_dynamique_change(param->map, param->mlx, param->graphique) == 
+		MALLOC_FAIL)
+	{
+		mlx_close_window(param->mlx);
+		ft_error(MALLOC_FAIL);
+		return ;
+	}
 	if (param->player_status == KILL_PALYER)
 	{
 		mlx_close_window(param->mlx);
@@ -71,11 +75,16 @@ void	mlx_key_bind(mlx_key_data_t keydata, void *param)
 	return ;
 }
 
-void	ft_error_malloc_fail_image(t_mlx_key_param param)
+int	ft_set_screen(t_mlx_key_param *param)
 {
-	ft_free_param(&param);
-	mlx_close_window(param.mlx);
-	ft_error(MALLOC_FAIL);
+	if (!(param->graphique = ft_make_graphique_init(param->mlx)))
+		return (MALLOC_FAIL);
+	if (ft_load_map(param->map, param->mlx, param->graphique) == MALLOC_FAIL)
+		return (MALLOC_FAIL);
+	if (ft_dynamique_change(param->map, param->mlx, param->graphique) == 
+		MALLOC_FAIL)
+		return (MALLOC_FAIL);
+	return (0);
 }
 
 int32_t	main(void)
@@ -90,15 +99,13 @@ int32_t	main(void)
 	param.mlx = mlx_init(window_size.width, window_size.height, "So_long", 1);
 	if (param.mlx == NULL)
 		return (EXIT_FAILURE);
-	if (!(param.graphique = ft_make_graphique_init(param.mlx)))
-		return (ft_free_param(&param), EXIT_FAILURE);
-	if (ft_load_map(param.map, param.mlx, param.graphique) == MALLOC_FAIL)
-		return (ft_free_param(&param), EXIT_FAILURE);
-	if (ft_dynamique_change(param.map, param.mlx, param.graphique) == 
-		MALLOC_FAIL)
-		return (ft_free_param(&param), EXIT_FAILURE);
-	mlx_key_hook(param.mlx, &mlx_key_bind, &param);
-	mlx_loop(param.mlx);
+	if (ft_set_screen(&param) == 0)
+	{
+		mlx_key_hook(param.mlx, &mlx_key_bind, &param);
+		mlx_loop(param.mlx);
+	}
+	else
+		ft_error(MALLOC_FAIL);
 	ft_free_param(&param);
 	mlx_terminate(param.mlx);
 	return (EXIT_SUCCESS);
