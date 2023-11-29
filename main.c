@@ -94,11 +94,11 @@ int32_t	main(void)
 
 	param.map = ft_check_map("./maps/wad.ber");
 	if (param.map == NULL)
-		return (EXIT_FAILURE);
+		return (1);
 	window_size = ft_get_window(param.map, 32);
 	param.mlx = mlx_init(window_size.width, window_size.height, "So_long", 1);
 	if (param.mlx == NULL)
-		return (EXIT_FAILURE);
+		return (ft_free_tab(param.map), 1);
 	if (ft_set_screen(&param) == 0)
 	{
 		mlx_key_hook(param.mlx, &mlx_key_bind, &param);
@@ -108,5 +108,5 @@ int32_t	main(void)
 		ft_error(MALLOC_FAIL);
 	ft_free_param(&param);
 	mlx_terminate(param.mlx);
-	return (EXIT_SUCCESS);
+	return (0);
 }
