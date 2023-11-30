@@ -14,6 +14,7 @@
 # define FT_GRAPHIC_H
 # include "../MLX42/include/MLX42/MLX42.h"
 # include "../libft/libft.h"
+# include "./ft_player.h"
 # include "./ft_pos.h"
 # include "ft_error.h"
 # define IMG_SIZE 32
@@ -32,16 +33,30 @@ typedef struct s_rec
 	int	height;
 }			t_rec;
 
+typedef struct s_mlx_key_param
+{
+	mlx_t		*mlx;
+	char		**map;
+	t_graphic	*graphic;
+	int			player_move;
+	int			player_status;
+	mlx_image_t	*str_move;
+}				t_mlx_key_param;
+
 void		ft_graphic_add_front(t_graphic **first, t_graphic *front);
 void		ft_graphic_addback(t_graphic **start, t_graphic *back);
 void		ft_graphic_free(t_graphic **start, mlx_t *mlx);
 void		ft_graphic_free_one(t_graphic *ptr, mlx_t *mlx);
+void		ft_free_param(t_mlx_key_param *param);
+void		ft_load_dynamique_change(t_mlx_key_param *param);
 
 int			ft_display_texture(mlx_t *mlx, t_pos pos, mlx_image_t *img);
 int			ft_push_map(mlx_t *mlx, int c, t_pos pos, t_graphic *textures);
 int			ft_load_map(char **map, mlx_t *mlx, t_graphic *textures);
 int			ft_dynamique_change(char **map, mlx_t *mlx, t_graphic*graphic);
 int			ft_load_dinamique(mlx_t *mlx, t_graphic **ptr);
+int			ft_set_screen(t_mlx_key_param *param);
+int			ft_set_text(t_mlx_key_param *param);
 
 t_rec		ft_get_window(char **map, int img_size);
 

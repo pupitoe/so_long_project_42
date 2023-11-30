@@ -13,7 +13,8 @@ SOURCES =	main.c \
 			sources/ft_graphic.c \
 			sources/ft_graphic_lst_0.c \
 			sources/ft_graphic_lst_1.c \
-			sources/ft_graphic_map.c
+			sources/ft_graphic_map.c \
+			sources/ft_graphic_change.c
 OBJS = $(SOURCES:.c=.o)
 NAME = so_long
 CFLAGS = -Wall -Wextra -Werror -g3
@@ -22,7 +23,10 @@ HEADERS =	headers/ft_check_map.h \
 			headers/ft_error.h \
 			headers/ft_player.h \
 			headers/ft_pos.h \
-			headers/ft_map_content.h	
+			headers/ft_map_content.h \
+			headers/ft_entity.h \
+			headers/ft_graphic.h
+
 LIBFT=libft/libft.a
 LIBMLX = ./MLX42
 LIBMLXCOMPILE = $(LIBMLX)/build/libmlx42.a
