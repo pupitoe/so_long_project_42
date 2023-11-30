@@ -6,7 +6,7 @@
 /*   By: tlassere <tlassere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 16:42:52 by tlassere          #+#    #+#             */
-/*   Updated: 2023/11/29 00:30:14 by tlassere         ###   ########.fr       */
+/*   Updated: 2023/11/30 01:14:55 by tlassere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	ft_uwuss(mlx_t *mlx, t_graphique **ptr, char *name, char *path)
 	return (1);
 }
 
-int ft_load_dinamique(mlx_t *mlx, t_graphique **ptr)
+int	ft_load_dinamique(mlx_t *mlx, t_graphique **ptr)
 {
 	t_graphique	*dynamique;
 	t_graphique	*static_part;
@@ -80,7 +80,7 @@ t_graphique	*ft_make_graphique_init(mlx_t *mlx)
 	return (ptr);
 }
 
-t_graphique *ft_make_graphique_dynamic(mlx_t *mlx)
+t_graphique	*ft_make_graphique_dynamic(mlx_t *mlx)
 {
 	t_graphique	*ptr;
 

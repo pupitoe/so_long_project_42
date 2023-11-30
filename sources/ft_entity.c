@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_antity.c                                        :+:      :+:    :+:   */
+/*   ft_entity.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tlassere <tlassere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 15:18:28 by tlassere          #+#    #+#             */
-/*   Updated: 2023/11/30 00:17:01 by tlassere         ###   ########.fr       */
+/*   Updated: 2023/11/30 01:16:59 by tlassere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static int	ft_entity_random_move(char **map, t_pos entity)
 	return (buff);
 }
 
-int	ft_entity_rec(char **map, t_pos cor)
+static int	ft_entity_rec(char **map, t_pos cor)
 {
 	int	bool_entity;
 	int	buffer;

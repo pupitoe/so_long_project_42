@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_antity.h                                        :+:      :+:    :+:   */
+/*   ft_entity.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tlassere <tlassere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 14:27:22 by tlassere          #+#    #+#             */
-/*   Updated: 2023/11/30 00:17:01 by tlassere         ###   ########.fr       */
+/*   Updated: 2023/11/30 01:16:34 by tlassere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_entity_H
-# define FT_entity_H
+#ifndef FT_ENTITY_H
+# define FT_ENTITY_H
 # include <math.h>
 # include "./ft_pos.h"
 # include "../libft/libft.h"
