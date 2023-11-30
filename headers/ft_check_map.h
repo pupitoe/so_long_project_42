@@ -6,7 +6,7 @@
 /*   By: tlassere <tlassere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 18:25:10 by tlassere          #+#    #+#             */
-/*   Updated: 2023/11/30 00:34:58 by tlassere         ###   ########.fr       */
+/*   Updated: 2023/11/30 11:43:27 by tlassere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char			**ft_get_tab(t_list *lst);
 char			**ft_check_map(char *path);
 int				ft_map_is_good(t_list *lst_map, char **map);
 /**
- * @param extremity Bottum and top of rec
+ * @param extremity Bottom and top of rec
  * @param width Len of rec
  * @param line Current line iterred
 */

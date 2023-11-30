@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_graphique_map.c                                 :+:      :+:    :+:   */
+/*   ft_graphic_map.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tlassere <tlassere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/ft_graphique.h"
+#include "../headers/ft_graphic.h"
 
 t_rec	ft_get_window(char **map, int img_size)
 {
@@ -34,7 +34,7 @@ int	ft_display_texture(mlx_t *mlx, t_pos pos, mlx_image_t *img)
 	return (0);
 }
 
-int	ft_push_map(mlx_t *mlx, int c, t_pos pos, t_graphique *textures)
+int	ft_push_map(mlx_t *mlx, int c, t_pos pos, t_graphic *textures)
 {
 	while (textures)
 	{
@@ -45,7 +45,7 @@ int	ft_push_map(mlx_t *mlx, int c, t_pos pos, t_graphique *textures)
 	return (0);
 }
 
-int	ft_load_map(char **map, mlx_t *mlx, t_graphique *textures)
+int	ft_load_map(char **map, mlx_t *mlx, t_graphic *textures)
 {
 	int	x;
 	int	y;
@@ -67,20 +67,20 @@ int	ft_load_map(char **map, mlx_t *mlx, t_graphique *textures)
 	return (0);
 }
 
-int	ft_dynamique_change(char **map, mlx_t *mlx, t_graphique *graphique)
+int	ft_dynamique_change(char **map, mlx_t *mlx, t_graphic *graphic)
 {
 	t_pos	pos;
 
 	pos = (t_pos){0, 0, 0};
-	if (ft_load_dinamique(mlx, &graphique) == MALLOC_FAIL)
+	if (ft_load_dinamique(mlx, &graphic) == MALLOC_FAIL)
 		return (MALLOC_FAIL);
-	graphique = ft_graphique_at(graphique, 2);
+	graphic = ft_graphic_at(graphic, 2);
 	while (map[pos.y])
 	{
 		pos.x = 0;
 		while (map[pos.y][pos.x])
 		{
-			if (ft_push_map(mlx, map[pos.y][pos.x], pos, graphique) == -1)
+			if (ft_push_map(mlx, map[pos.y][pos.x], pos, graphic) == -1)
 				return (-1);
 			pos.x++;
 		}

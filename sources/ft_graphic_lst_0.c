@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_graphique_lst_0.c                               :+:      :+:    :+:   */
+/*   ft_graphic_lst_0.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tlassere <tlassere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,16 +10,16 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/ft_graphique.h"
+#include "../headers/ft_graphic.h"
 
-t_graphique	*ft_graphique_new(mlx_image_t *img, mlx_texture_t *texture,
+t_graphic	*ft_graphic_new(mlx_image_t *img, mlx_texture_t *texture,
 	char *name)
 {
-	t_graphique	*el;
+	t_graphic	*el;
 
 	if (!img || !texture || !name)
 		return (NULL);
-	el = malloc(sizeof(t_graphique));
+	el = malloc(sizeof(t_graphic));
 	if (el == NULL)
 		return (NULL);
 	el->img = img;
@@ -29,9 +29,9 @@ t_graphique	*ft_graphique_new(mlx_image_t *img, mlx_texture_t *texture,
 	return (el);
 }
 
-void	ft_graphique_add_front(t_graphique **first, t_graphique *front)
+void	ft_graphic_add_front(t_graphic **first, t_graphic *front)
 {
-	t_graphique	*buffer;
+	t_graphic	*buffer;
 
 	if (front == NULL || first == NULL)
 		return ;
@@ -46,29 +46,29 @@ void	ft_graphique_add_front(t_graphique **first, t_graphique *front)
 	return ;
 }
 
-t_graphique	*ft_graphique_last(t_graphique *start)
+t_graphic	*ft_graphic_last(t_graphic *start)
 {
 	if (start == NULL)
 		return (NULL);
 	if (start->next == NULL)
 		return (start);
-	return (ft_graphique_last(start->next));
+	return (ft_graphic_last(start->next));
 }
 
-void	ft_graphique_addback(t_graphique **start, t_graphique *back)
+void	ft_graphic_addback(t_graphic **start, t_graphic *back)
 {
 	if (start == NULL || back == NULL)
 		return ;
 	if (*start == NULL)
 	{
-		ft_graphique_add_front(start, back);
+		ft_graphic_add_front(start, back);
 		return ;
 	}
-	(ft_graphique_last(*start))->next = back;
+	(ft_graphic_last(*start))->next = back;
 	return ;
 }
 
-t_graphique	*ft_graphique_at(t_graphique *begin, int index)
+t_graphic	*ft_graphic_at(t_graphic *begin, int index)
 {
 	if (begin == NULL || index < 0)
 		return (NULL);
@@ -76,5 +76,5 @@ t_graphique	*ft_graphique_at(t_graphique *begin, int index)
 		return (begin);
 	if (begin->next == NULL)
 		return (begin);
-	return (ft_graphique_at(begin->next, index - 1));
+	return (ft_graphic_at(begin->next, index - 1));
 }

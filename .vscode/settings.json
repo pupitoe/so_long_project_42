@@ -1,6 +1,8 @@
 {
     "files.associations": {
-        "ft_graphique.h": "c",
-        "ft_check_map.h": "c"
+        "ft_graphic.h": "c",
+        "ft_check_map.h": "c",
+        "mlx42.h": "c",
+        "libft.h": "c"
     }
 }

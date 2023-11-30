@@ -6,7 +6,7 @@
 /*   By: tlassere <tlassere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 15:18:28 by tlassere          #+#    #+#             */
-/*   Updated: 2023/11/30 01:16:59 by tlassere         ###   ########.fr       */
+/*   Updated: 2023/11/30 13:56:20 by tlassere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static int	ft_entity_random_move(char **map, t_pos entity)
 	int	move;
 	int	buff;
 
-	move = rand() % 4;
+	move = rand() % 5;
 	buff = 0;
 	if (move == ENTITY_W)
 		buff = ft_move_entity(map, entity, (t_pos){entity.x, entity.y - 1, 0});

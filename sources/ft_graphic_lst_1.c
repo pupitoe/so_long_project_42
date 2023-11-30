@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_graphique_lst_1.c                               :+:      :+:    :+:   */
+/*   ft_graphic_lst_1.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tlassere <tlassere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/ft_graphique.h"
+#include "../headers/ft_graphic.h"
 
-void	ft_graphique_free_one(t_graphique *ptr, mlx_t *mlx)
+void	ft_graphic_free_one(t_graphic *ptr, mlx_t *mlx)
 {
 	mlx_delete_image(mlx, ptr->img);
 	mlx_delete_texture(ptr->texture);
@@ -21,10 +21,10 @@ void	ft_graphique_free_one(t_graphique *ptr, mlx_t *mlx)
 	return ;
 }
 
-void	ft_graphique_free(t_graphique **start, mlx_t *mlx)
+void	ft_graphic_free(t_graphic **start, mlx_t *mlx)
 {
-	t_graphique	*buffer;
-	t_graphique	*tmp;
+	t_graphic	*buffer;
+	t_graphic	*tmp;
 
 	if (start == NULL || mlx == NULL)
 		return ;
@@ -32,7 +32,7 @@ void	ft_graphique_free(t_graphique **start, mlx_t *mlx)
 	while (buffer)
 	{
 		tmp = buffer->next;
-		ft_graphique_free_one(buffer, mlx);
+		ft_graphic_free_one(buffer, mlx);
 		buffer = tmp;
 	}
 	*start = NULL;

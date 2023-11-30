@@ -14,7 +14,7 @@
 
 static int	ft_cmp_item(t_item_count *items, t_item_count *items_flood)
 {
-	if (items->exit != items_flood->exit)
+	if (items->exit == 0)
 		return (-1);
 	if (items->items != items_flood->items)
 		return (-1);
@@ -23,9 +23,9 @@ static int	ft_cmp_item(t_item_count *items, t_item_count *items_flood)
 
 static void	ft_flood_fill_rec(t_item_count *item, char **map, t_pos vector)
 {
-	if (ft_strchr("12M", map[vector.y][vector.x]))
-		return ;
 	ft_put_element(item, map[vector.y][vector.x]);
+	if (ft_strchr("12ME", map[vector.y][vector.x]))
+		return ;
 	map[vector.y][vector.x] = '2';
 	ft_flood_fill_rec(item, map, (t_pos){vector.x + 1, vector.y, 0});
 	ft_flood_fill_rec(item, map, (t_pos){vector.x - 1, vector.y, 0});

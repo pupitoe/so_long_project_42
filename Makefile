@@ -10,10 +10,10 @@ SOURCES =	main.c \
 			sources/ft_error.c \
 			sources/ft_entity.c\
 			sources/ft_player.c \
-			sources/ft_graphique.c \
-			sources/ft_graphique_lst_0.c \
-			sources/ft_graphique_lst_1.c \
-			sources/ft_graphique_map.c
+			sources/ft_graphic.c \
+			sources/ft_graphic_lst_0.c \
+			sources/ft_graphic_lst_1.c \
+			sources/ft_graphic_map.c
 OBJS = $(SOURCES:.c=.o)
 NAME = so_long
 CFLAGS = -Wall -Wextra -Werror -g3
