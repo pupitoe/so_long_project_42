@@ -6,7 +6,7 @@
 /*   By: tlassere <tlassere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 21:25:07 by tlassere          #+#    #+#             */
-/*   Updated: 2023/11/28 15:55:37 by tlassere         ###   ########.fr       */
+/*   Updated: 2023/11/30 00:17:01 by tlassere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include "ft_map_content.h"
 # include "../libft/libft.h"
 # include "ft_check_map.h"
-# include "./ft_antity.h"
+# include "./ft_entity.h"
 # define KILL_PALYER -1
 # define PLAYER_NO_MOVE 0
 # define PLAYER_MOVE 1

@@ -6,12 +6,12 @@
 /*   By: tlassere <tlassere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 14:27:22 by tlassere          #+#    #+#             */
-/*   Updated: 2023/11/25 18:28:28 by tlassere         ###   ########.fr       */
+/*   Updated: 2023/11/30 00:17:01 by tlassere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_ANTITY_H
-# define FT_ANTITY_H
+#ifndef FT_entity_H
+# define FT_entity_H
 # include <math.h>
 # include "./ft_pos.h"
 # include "../libft/libft.h"
@@ -23,6 +23,6 @@
 # define ENTITY_S 2
 # define ENTITY_D 3
 
-int	ft_antity(char **map);
+int	ft_entity(char **map);
 
 #endif

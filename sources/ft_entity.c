@@ -6,13 +6,13 @@
 /*   By: tlassere <tlassere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 15:18:28 by tlassere          #+#    #+#             */
-/*   Updated: 2023/11/25 19:07:40 by tlassere         ###   ########.fr       */
+/*   Updated: 2023/11/30 00:17:01 by tlassere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/ft_antity.h"
+#include "../headers/ft_entity.h"
 
-static int	ft_move_antity(char **map, t_pos start, t_pos end)
+static int	ft_move_entity(char **map, t_pos start, t_pos end)
 {
 	if (ft_strchr("C1EM", map[end.y][end.x]))
 		return (ENTITY_NO_MOVE);
@@ -23,7 +23,7 @@ static int	ft_move_antity(char **map, t_pos start, t_pos end)
 	return (ENTITY_NO_KILL);
 }
 
-static int	ft_antity_random_move(char **map, t_pos antity)
+static int	ft_entity_random_move(char **map, t_pos entity)
 {
 	int	move;
 	int	buff;
@@ -31,17 +31,17 @@ static int	ft_antity_random_move(char **map, t_pos antity)
 	move = rand() % 4;
 	buff = 0;
 	if (move == ENTITY_W)
-		buff = ft_move_antity(map, antity, (t_pos){antity.x, antity.y - 1, 0});
+		buff = ft_move_entity(map, entity, (t_pos){entity.x, entity.y - 1, 0});
 	if (move == ENTITY_A)
-		buff = ft_move_antity(map, antity, (t_pos){antity.x - 1, antity.y, 0});
+		buff = ft_move_entity(map, entity, (t_pos){entity.x - 1, entity.y, 0});
 	if (move == ENTITY_S)
-		buff = ft_move_antity(map, antity, (t_pos){antity.x, antity.y + 1, 0});
+		buff = ft_move_entity(map, entity, (t_pos){entity.x, entity.y + 1, 0});
 	if (move == ENTITY_D)
-		buff = ft_move_antity(map, antity, (t_pos){antity.x + 1, antity.y, 0});
+		buff = ft_move_entity(map, entity, (t_pos){entity.x + 1, entity.y, 0});
 	return (buff);
 }
 
-int	ft_antity_rec(char **map, t_pos cor)
+int	ft_entity_rec(char **map, t_pos cor)
 {
 	int	bool_entity;
 	int	buffer;
@@ -52,18 +52,18 @@ int	ft_antity_rec(char **map, t_pos cor)
 	if (map[cor.y][cor.x] == 'M')
 		bool_entity = 1;
 	if (map[cor.y][cor.x])
-		buffer = ft_antity_rec(map, (t_pos){cor.x + 1, cor.y, 0});
+		buffer = ft_entity_rec(map, (t_pos){cor.x + 1, cor.y, 0});
 	else
-		buffer = ft_antity_rec(map, (t_pos){0, cor.y + 1, 0});
+		buffer = ft_entity_rec(map, (t_pos){0, cor.y + 1, 0});
 	if (bool_entity)
 	{
-		if (ft_antity_random_move(map, (t_pos){cor.x, cor.y, 0}) == ENTITY_KILL)
+		if (ft_entity_random_move(map, (t_pos){cor.x, cor.y, 0}) == ENTITY_KILL)
 			return (ENTITY_KILL);
 	}
 	return (buffer);
 }
 
-int	ft_antity(char **map)
+int	ft_entity(char **map)
 {
-	return (ft_antity_rec(map, (t_pos){0, 0, 0}));
+	return (ft_entity_rec(map, (t_pos){0, 0, 0}));
 }

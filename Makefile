@@ -8,7 +8,7 @@ SOURCES =	main.c \
 			sources/ft_check_map_items.c \
 			sources/ft_check_map_path.c \
 			sources/ft_error.c \
-			sources/ft_antity.c\
+			sources/ft_entity.c\
 			sources/ft_player.c \
 			sources/ft_graphique.c \
 			sources/ft_graphique_lst_0.c \

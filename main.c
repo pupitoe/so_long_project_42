@@ -77,6 +77,8 @@ void	mlx_key_bind(mlx_key_data_t keydata, void *param)
 
 int	ft_set_screen(t_mlx_key_param *param)
 {
+	if (ft_player_action(param->map, PLAYER_GET_ITEM) == MALLOC_FAIL)
+		return (MALLOC_FAIL);
 	if (!(param->graphique = ft_make_graphique_init(param->mlx)))
 		return (MALLOC_FAIL);
 	if (ft_load_map(param->map, param->mlx, param->graphique) == MALLOC_FAIL)
@@ -87,12 +89,15 @@ int	ft_set_screen(t_mlx_key_param *param)
 	return (0);
 }
 
-int32_t	main(void)
+int32_t	main(int argc, char **argv)
 {
 	t_mlx_key_param	param;
 	t_rec		window_size;
 
-	param.map = ft_check_map("./maps/wad.ber");
+	if (argc < 2)
+		param.map = ft_check_map("./maps/wad.ber");
+	else
+		param.map = ft_check_map(argv[1]);
 	if (param.map == NULL)
 		return (1);
 	window_size = ft_get_window(param.map, 32);

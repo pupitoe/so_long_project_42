@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "ft_graphique.h": "c",
+        "ft_check_map.h": "c"
+    }
+}

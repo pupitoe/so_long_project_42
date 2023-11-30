@@ -16,13 +16,13 @@ int	ft_map_is_good(t_list *lst_map, char **map)
 {
 	t_item_count	*items;
 
-	if (ft_map_is_rec(lst_map) == -1)
-		return (-1);
+	if (ft_map_is_rec(lst_map) < 0)
+		return (ERROR_REC);
 	items = ft_check_map_items(map);
 	if (items == NULL)
-		return (-2);
-	if (ft_flood_fill(map, items) == -1)
-		return (free(items), -3);
+		return (ERROR_ITEM);
+	if (ft_flood_fill(map, items) < 0)
+		return (free(items), ERROR_FLOOD);
 	free(items);
 	return (0);
 }
@@ -34,21 +34,17 @@ char	**ft_check_map(char *path)
 	int		ret;
 
 	if (ft_check_map_path(path) == -1)
-		return (ft_error(-4), NULL);
+		return (ft_error(ERROR_PATH), NULL);
 	lst_map = ft_get_map(path);
 	if (lst_map == NULL)
 		return (NULL);
 	map = ft_get_tab(lst_map);
 	if (map == NULL)
-		return (ft_error(0), NULL);
-	ft_printf("%w", map);
+		return (ft_lstclear(&lst_map, &free), ft_error(MALLOC_FAIL), NULL);
 	ret = ft_map_is_good(lst_map, map);
 	ft_error(ret);
 	ft_lstclear(&lst_map, NULL);
 	if (ret < 0)
-	{
-		ft_free_tab(map);
-		return (NULL);
-	}
+		return (ft_free_tab(map), NULL);
 	return (map);
 }

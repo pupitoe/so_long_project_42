@@ -41,12 +41,11 @@ int	ft_flood_fill(char **map, t_item_count *items)
 
 	buffer_map = ft_dump_tab(map);
 	if (buffer_map == NULL)
-		return (-1);
+		return (MALLOC_FAIL);
 	buffer_item = ft_make_item_count();
 	if (buffer_item == NULL)
-		return (ft_free_tab(buffer_map), -1);
+		return (ft_free_tab(buffer_map), MALLOC_FAIL);
 	ft_flood_fill_rec(buffer_item, buffer_map, ft_get_spawn(buffer_map));
-	ft_printf("new_tab :\n%w", buffer_map);
 	tmp = ft_cmp_item(items, buffer_item);
 	free(buffer_item);
 	ft_free_tab(buffer_map);

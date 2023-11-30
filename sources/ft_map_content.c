@@ -6,7 +6,7 @@
 /*   By: tlassere <tlassere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 18:32:59 by tlassere          #+#    #+#             */
-/*   Updated: 2023/11/19 15:49:12 by tlassere         ###   ########.fr       */
+/*   Updated: 2023/11/30 00:18:30 by tlassere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,5 @@ t_pos	ft_get_spawn(char **map)
 		spawn.y += 1;
 	}
 	spawn.y -= 1;
-	ft_printf("uwu : %d\n", spawn.x);
 	return (spawn);
 }

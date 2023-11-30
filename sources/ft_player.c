@@ -6,7 +6,7 @@
 /*   By: tlassere <tlassere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 17:27:48 by tlassere          #+#    #+#             */
-/*   Updated: 2023/11/29 00:56:23 by tlassere         ###   ########.fr       */
+/*   Updated: 2023/11/30 00:17:01 by tlassere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static int	ft_player_move(char **map, int action)
 		buffer = player_change_map(map, ft_get_spawn(map), (t_pos){0, 1, 0});
 	else if (action == 'D')
 		buffer = player_change_map(map, ft_get_spawn(map), (t_pos){1, 0, 0});
-	if (ft_antity(map) == KILL_PALYER)
+	if (ft_entity(map) == KILL_PALYER)
 		return (KILL_PALYER);
 	return (buffer);
 }

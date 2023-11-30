@@ -6,7 +6,7 @@
 /*   By: tlassere <tlassere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 18:07:58 by tlassere          #+#    #+#             */
-/*   Updated: 2023/11/23 19:36:49 by tlassere         ###   ########.fr       */
+/*   Updated: 2023/11/30 00:35:14 by tlassere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ char	**ft_get_tab(t_list *lst)
 	lst_size = ft_lstsize(lst);
 	tabs = malloc((lst_size + 1) * sizeof(char **));
 	if (tabs == NULL)
-		return (ft_lstclear(&lst, &free), NULL);
+		return (NULL);
 	tabs[lst_size] = NULL;
 	i = 0;
 	while (i < lst_size)
@@ -50,18 +50,6 @@ char	**ft_get_tab(t_list *lst)
 		i++;
 	}
 	return (tabs);
-}
-
-void	ft_print_lst(t_list *lst)
-{
-	char	*el;
-
-	while (lst)
-	{
-		el = lst->content;
-		ft_printf("%s\n", el);
-		lst = lst->next;
-	}
 }
 
 t_list	*ft_get_map(char *path)
@@ -77,18 +65,4 @@ t_list	*ft_get_map(char *path)
 		ft_lstclear(&map, &free);
 	close(fd);
 	return (map);
-}
-
-int	ft_map_fill(char *str, int c)
-{
-	size_t	i;
-
-	i = 0;
-	while (str[i])
-	{
-		if (str[i] != c)
-			return (-1);
-		i++;
-	}
-	return (0);
 }
