@@ -53,4 +53,4 @@ M : Entity
 ## Credit
 ### resource pack
 for enemys and player : 2D Pixel Art Little Apple Sprites (itch.io)
-auther image, code : me
+auther image, code : Mega Pixel Art 32x32 px. Icons Sprite Sheet (itch.io)
