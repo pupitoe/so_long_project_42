@@ -14,7 +14,8 @@ SOURCES =	main.c \
 			sources/ft_graphic_lst_0.c \
 			sources/ft_graphic_lst_1.c \
 			sources/ft_graphic_map.c \
-			sources/ft_graphic_change.c
+			sources/ft_graphic_change.c \
+			sources/ft_graphic_change_bonus.c
 OBJS = $(SOURCES:.c=.o)
 NAME = so_long
 CFLAGS = -Wall -Wextra -Werror -g3
