@@ -62,6 +62,7 @@ void	ft_get_key_player(t_mlx_key_param *param, mlx_key_data_t keydata)
 		ft_printf("You win the game GG !\n");
 	}
 	param->player_move = ft_player_action(param->map, PLAYER_CMD_GET_MOVE);
+	ft_printf("Player move : %d\n", param->player_move);
 }
 
 void	mlx_key_bind(mlx_key_data_t keydata, void *param)
