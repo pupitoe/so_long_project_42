@@ -6,7 +6,7 @@
 /*   By: tlassere <tlassere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 17:05:13 by tlassere          #+#    #+#             */
-/*   Updated: 2023/11/18 17:05:13 by tlassere         ###   ########.fr       */
+/*   Updated: 2023/12/01 20:14:34 by tlassere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static int	ft_cmp_item(t_item_count *items, t_item_count *items_flood)
 {
-	if (items->exit == 0)
+	if (items_flood->exit == 0)
 		return (-1);
 	if (items->items != items_flood->items)
 		return (-1);
